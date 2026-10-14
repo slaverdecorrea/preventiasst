@@ -173,6 +173,12 @@ footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem
 .rating span{font-size:0.82rem;font-weight:600;padding:0.35rem 0.75rem;border-radius:999px}
 .r-crit{background:#FEE2E2;color:#991B1B}.r-mod{background:#FEF3C7;color:#92400E}.r-ok{background:#D1FAE5;color:#065F46}
 
+/* BANNER */
+.banner{padding:2.5rem 0;background:var(--bg)}
+.banner-card{display:grid;grid-template-columns:1fr 1.25fr;gap:2rem;align-items:center;background:#fff;border:1px solid var(--border);border-radius:20px;padding:2.25rem;box-shadow:0 14px 40px rgba(15,23,42,0.06)}
+.banner-card h2{margin-bottom:0.6rem;font-size:clamp(1.5rem,2.6vw,2.1rem)}
+.banner-card p{color:var(--muted);margin-bottom:1.4rem}
+.banner-card img{width:100%;height:auto;border-radius:14px}
 /* RESPONSIVE */
 @media (max-width:900px){
   section{padding:4.25rem 0}
@@ -191,6 +197,7 @@ footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem
   .kpi b{font-size:1.35rem}
   .report-doc{padding:1.4rem}
   .shot-grid,.std-grid{grid-template-columns:1fr}
+  .banner-card{grid-template-columns:1fr;padding:1.5rem}
   .phva{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -233,6 +240,21 @@ footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem
     </figure>
   </div>
 </header>
+
+<!-- BANNER -->
+<section class="banner" aria-label="Banner SG-SST">
+  <div class="wrap">
+    <div class="banner-card">
+      <div>
+        <span class="tag">Seguridad y salud en el trabajo</span>
+        <h2>Cumple el SG-SST sin perseguir carpetas</h2>
+        <p>Trabajadores, inspecciones, capacitaciones y reportes en una sola plataforma, con el cumplimiento visible en todo momento.</p>
+        <a href="#contacto" class="btn btn-primary">Solicitar demo</a>
+      </div>
+      <img src="assets/banner-sst.svg" alt="Casco de seguridad, escudo con check y tablero de cumplimiento SG-SST" width="1200" height="360" loading="eager">
+    </div>
+  </div>
+</section>
 
 <!-- PROBLEMA -->
 <section class="problem">
