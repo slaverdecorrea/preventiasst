@@ -39,7 +39,7 @@ a{color:inherit}
 /* NAV */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(248,250,250,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.nav-logo img{height:40px;width:auto}
+.nav-logo img{height:56px;width:auto}
 .nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:0.92rem;font-weight:500}
 .nav-links a:hover{color:var(--teal)}
@@ -150,29 +150,48 @@ h2 em{font-style:normal;color:var(--teal)}
 /* FOOTER */
 footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem}
 .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
-.foot-grid img{height:44px;width:auto;margin-bottom:0.9rem}
+.foot-grid img{height:64px;width:auto;margin-bottom:0.9rem}
 .foot-grid p{max-width:360px}
 .foot-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .foot-links a{color:#CBD5E1;text-decoration:none}
 .foot-links a:hover{color:#5EEAD4}
 .foot-bottom{border-top:1px solid rgba(255,255,255,0.08);margin-top:2.25rem;padding-top:1.25rem;font-size:0.82rem;color:#64748B}
 
+/* SCREENSHOTS */
+.shot-frame{margin:0}
+.shot{width:100%;height:auto;border-radius:14px;border:1px solid var(--border);box-shadow:0 18px 50px rgba(15,23,42,0.1);background:#fff}
+.shot-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;align-items:start}
+.shot-grid figure{margin:0}
+.shot-grid figcaption{font-size:0.9rem;color:var(--muted);margin-top:0.75rem}
+.shot-grid figcaption strong{color:var(--ink);display:block;font-size:0.98rem;margin-bottom:0.2rem}
+.std-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:center}
+.phva{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1.5rem}
+.phva div{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0.9rem;text-align:center}
+.phva b{display:block;font-family:'Space Grotesk',sans-serif;color:var(--teal-dark);font-size:0.95rem}
+.phva span{font-size:0.78rem;color:var(--muted)}
+.rating{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.25rem}
+.rating span{font-size:0.82rem;font-weight:600;padding:0.35rem 0.75rem;border-radius:999px}
+.r-crit{background:#FEE2E2;color:#991B1B}.r-mod{background:#FEF3C7;color:#92400E}.r-ok{background:#D1FAE5;color:#065F46}
+
 /* RESPONSIVE */
 @media (max-width:900px){
   section{padding:4.25rem 0}
   .hero{padding:7.5rem 0 4.5rem}
-  .hero-grid,.split-grid,.report-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-grid,.split-grid,.report-grid,.std-grid{grid-template-columns:1fr;gap:2.5rem}
+  .shot-grid{grid-template-columns:1fr 1fr}
   .problem-grid,.features-grid{grid-template-columns:1fr 1fr}
   .nav-links li:not(:last-child){display:none}
 }
 @media (max-width:600px){
   .problem-grid,.features-grid{grid-template-columns:1fr}
-  .nav-logo img{height:34px}
+  .nav-logo img{height:44px}
   .btn{width:100%}
   .hero-ctas,.cta-ctas{flex-direction:column}
   .btn-nav{width:auto}
   .kpi b{font-size:1.35rem}
   .report-doc{padding:1.4rem}
+  .shot-grid,.std-grid{grid-template-columns:1fr}
+  .phva{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -209,21 +228,9 @@ footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem
       </ul>
     </div>
 
-    <aside class="hero-card" aria-label="Ejemplo de tablero">
-      <div class="hero-card-top">
-        <strong>Estado del SG-SST</strong>
-        <span class="pill">Este mes</span>
-      </div>
-      <div class="kpi-grid">
-        <div class="kpi"><span>Trabajadores activos</span><b>48</b></div>
-        <div class="kpi"><span>Exámenes por vencer</span><b class="warn">3</b></div>
-        <div class="kpi"><span>Incidentes abiertos</span><b class="ok">0</b></div>
-        <div class="kpi"><span>Capacitaciones al día</span><b class="ok">94%</b></div>
-      </div>
-      <div class="bar" role="img" aria-label="Avance del plan anual de trabajo, 78 por ciento"><i></i></div>
-      <div class="bar-label"><span>Plan anual de trabajo</span><span>78%</span></div>
-      <p class="report-meta">Datos de ejemplo.</p>
-    </aside>
+    <figure class="shot-frame">
+      <img class="shot" src="assets/capturas/dashboard.png" alt="Tablero de PreventIA con cumplimiento global del SG-SST, autoevaluación 0312 e inspecciones" width="2840" height="1522" loading="eager">
+    </figure>
   </div>
 </header>
 
@@ -297,6 +304,26 @@ footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem
         <p>Planificado frente a ejecutado por año, categoría e ítem. El dato que necesita quien aprueba el gasto.</p>
       </article>
       <article class="feature">
+        <div class="feature-ico" aria-hidden="true">&#9989;</div>
+        <h3>Estándares mínimos 0312</h3>
+        <p>Autoevaluación anual con los estándares de la Resolución 0312 de 2019, calificación por ciclo PHVA y plan de mejoramiento generado desde el PAT.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-ico" aria-hidden="true">&#128203;</div>
+        <h3>Inspecciones</h3>
+        <p>Programa con frecuencias y responsables, ejecución con fotos por ítem, activos y plantillas. Funciona también sin conexión.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-ico" aria-hidden="true">&#9888;</div>
+        <h3>Matriz IPEVR</h3>
+        <p>Identificación de peligros, evaluación y valoración de riesgos con metodología GTC 45 y mapa de calor por categoría y nivel.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-ico" aria-hidden="true">&#128197;</div>
+        <h3>Plan anual de trabajo</h3>
+        <p>Cronograma por mes y categoría, con avance y vencimientos. Las actividades se conectan con los estándares que lo requieren.</p>
+      </article>
+      <article class="feature">
         <div class="feature-ico" aria-hidden="true">&#129302;</div>
         <h3>Asistente con IA</h3>
         <p>Responde preguntas sobre normativa colombiana y sobre la base de conocimiento de tu empresa.</p>
@@ -334,6 +361,73 @@ footer{background:var(--ink);color:#94A3B8;padding:3rem 0 2rem;font-size:0.88rem
         <div class="bubble in">Pregunta 1 de 8: ¿Qué tan seguro te sientes en tu puesto de trabajo?</div>
         <div class="bubble out">Bastante seguro</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTANDARES 0312 -->
+<section id="estandares" class="split">
+  <div class="wrap std-grid">
+    <div>
+      <span class="tag">Resolución 0312 de 2019</span>
+      <h2>Autoevaluación de estándares mínimos, <em>con evidencia</em></h2>
+      <p class="sub">El checklist de la 0312 se califica solo. Cada estándar se marca como cumple, no cumple o no aplica según el grupo de tu empresa, y el puntaje se recalcula al instante.</p>
+      <div class="phva" aria-label="Ciclos PHVA">
+        <div><b>Planear</b><span>Política, planificación y objetivos</span></div>
+        <div><b>Hacer</b><span>Gestión de peligros y capacitación</span></div>
+        <div><b>Verificar</b><span>Indicadores e inspecciones</span></div>
+        <div><b>Actuar</b><span>Mejora y acciones correctivas</span></div>
+      </div>
+      <div class="rating" aria-label="Calificación">
+        <span class="r-crit">Menos de 60: crítico</span>
+        <span class="r-mod">60 a 85: moderadamente aceptable</span>
+        <span class="r-ok">Más de 85: aceptable</span>
+      </div>
+      <ul class="check-list">
+        <li>Varios estándares se sugieren como cumplidos con los datos que ya están en PreventIA: COPASST, capacitaciones, PAT, incidentes, exámenes médicos e inspecciones</li>
+        <li>Los estándares que no cumplen generan actividades en el plan de mejoramiento del PAT</li>
+        <li>Informe en PDF de la autoevaluación, listo para presentar</li>
+      </ul>
+    </div>
+    <figure class="shot-frame">
+      <img class="shot" src="assets/capturas/autoevaluacion-0312.png" alt="Autoevaluación 2026 de la Resolución 0312, con puntaje, calificación y avance por ciclo PHVA" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- OPERACION EN CAMPO -->
+<section id="operacion">
+  <div class="wrap">
+    <div class="center">
+      <span class="tag">Operación</span>
+      <h2>Inspecciones y riesgos, <em>al día en cada sede</em></h2>
+      <p class="sub">Las inspecciones se programan con responsables y vencimientos. La matriz de riesgos y el plan anual quedan conectados con lo que pasa en campo.</p>
+    </div>
+    <div class="shot-grid">
+      <figure>
+        <img class="shot" src="assets/capturas/inspecciones.png" alt="Lista de inspecciones programadas con estado de vencimiento, sede y responsable" loading="lazy">
+        <figcaption><strong>Inspecciones programadas</strong>Estado de cada inspección, responsable y próxima fecha.</figcaption>
+      </figure>
+      <figure>
+        <img class="shot" src="assets/capturas/matriz-iperv.png" alt="Matriz IPEVR con mapa de calor por categoría de peligro y nivel de riesgo" loading="lazy">
+        <figcaption><strong>Matriz IPEVR (GTC 45)</strong>Peligros por categoría y nivel de riesgo en un mapa de calor.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CAPACITACION Y PLAN -->
+<section class="split">
+  <div class="wrap">
+    <div class="shot-grid" style="margin-top:0">
+      <figure>
+        <img class="shot" src="assets/capturas/capacitaciones.png" alt="Detalle de capacitación con participantes, firmas, post-test y certificados" loading="lazy">
+        <figcaption><strong>Capacitaciones con firma y certificado</strong>Asistencia por QR o planilla, post-test y evaluación de eficacia.</figcaption>
+      </figure>
+      <figure>
+        <img class="shot" src="assets/capturas/plan-anual.png" alt="Plan anual de trabajo SG-SST con cronograma por mes y avance de actividades" loading="lazy">
+        <figcaption><strong>Plan anual de trabajo</strong>Cronograma por mes, categoría y estado, con avance del año.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
